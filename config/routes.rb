@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   devise_for :users, controllers: {
-       sessions: 'users/sessions',
-     }
-  root "sessions#index"
+       sessions: 'users/sessions' },
+       path_names: { sign_in: 'login'}
+
+  root "posts#index"
 
 end
