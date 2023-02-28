@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_26_160642) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_121536) do
   create_table "friendships", force: :cascade do |t|
     t.integer "requestee_id"
     t.integer "requestor_id"
@@ -18,6 +18,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_26_160642) do
     t.datetime "updated_at", null: false
     t.index ["requestee_id"], name: "index_friendships_on_requestee_id"
     t.index ["requestor_id"], name: "index_friendships_on_requestor_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.boolean "liked"
+    t.integer "likeable_id"
+    t.string "likeable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|

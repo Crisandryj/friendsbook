@@ -18,4 +18,6 @@ class User < ApplicationRecord
  has_many :friend_requests, class_name: "Friendship", foreign_key: :requestor_id
  has_many :requestees, through: :friend_requests
 
+has_many :likes, as: :likeable
+
 end
