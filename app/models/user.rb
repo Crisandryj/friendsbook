@@ -11,7 +11,9 @@ class User < ApplicationRecord
 # has_many :name, through: :name
 
  has_many :posts,  dependent: :destroy
+
  has_many :comments
+ has_many :commented_posts, through: :comments, source: :user
 
  has_many :requested_friends, class_name: "Friendship", foreign_key: :requestee_id
  has_many :requestors, through: :requested_friends
