@@ -1,0 +1,19 @@
+<div>
+  <%= form_with model: @post do |post| %>
+    <p><%=  post.text_area :body,  size: "60x10" %></p>
+    <p><%=  post.submit "Post" %></p>
+  <% end %>
+
+</div>
+
+<div>
+  <% @posts.each do |post| %>
+    <p>
+      Post:
+      <%= post.body %>
+      Author:
+      <%=  post.user.email %>
+    </p>
+
+  <% end %>
+</div>
