@@ -13,6 +13,12 @@
       <%= post.body %>
       Author:
       <%=  post.user.email %>
+      <div>
+        <%= button_to 'Like', {:controller => "likes", :action => "create", liked: :true, likeable_id: post.id, likeable_type: :post}, :method=>:post %>
+      </div>
     </p>
   <% end %>
+
+
+
 </div>

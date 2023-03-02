@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:body,:title)
+    params.require(:body)
   end
 
 
