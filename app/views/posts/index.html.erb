@@ -8,15 +8,15 @@
 
 <div>
   <% @posts.each do |post| %>
-    <p>
+    <div>
       Post:
       <%= post.body %>
       Author:
       <%=  post.user.email %>
-      <div>
+      <p>
         <%= button_to 'Like', {:controller => "likes", :action => "create", liked: :true, likeable_id: post.id, likeable_type: :post}, :method=>:post %>
-      </div>
-    </p>
+      </p>
+    </div>
   <% end %>
 
 
