@@ -14,7 +14,7 @@
       Author:
       <%=  post.user.email %>
       <p>
-      
+        <p><%= button_to 'Likes', likes_path, params:  {:like => {:liked => true, :likeable_id => post.id, :likeable_type => "Post"}}, method: :post %></p>
       </p>
     </div>
   <% end %>

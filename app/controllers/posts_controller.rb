@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @like = Like.new
     @posts = Post.all
   end
 
