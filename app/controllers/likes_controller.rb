@@ -4,19 +4,19 @@ class LikesController < ApplicationController
   end
 
   def create
-    p 'ty'
-    @like = current_user.likes.create(like_params)
+    @like = Like.create(like_params)
     if @like.save
+      p like_params
       redirect_to @like
     else
-      render new, status: unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
 private
 
 def like_params
-  params.permit(:liked)
+  params.(:like).permit(:liked, :likeable_type, :likeable_id)
 end
 
 end
