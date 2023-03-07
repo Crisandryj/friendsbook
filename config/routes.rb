@@ -6,7 +6,7 @@ Rails.application.routes.draw do
        sessions: 'users/sessions' },
        path_names: { sign_in: 'login'}
 
-  resources :posts, :users, :likes
+  resources :posts, :users, :likes, :friendships
   root "posts#index"
 
 end
