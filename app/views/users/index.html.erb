@@ -1,5 +1,5 @@
 <% @users.all.each do |user| %>
   <p><%= user.email %></p>
-  <p><%= button_to 'Request', {:controller => "friendships", :action => 'create',
+  <p><%= button_to 'Request', {:controller => "friendships", :action => 'update',
     :friendship => {:requestee_id => user.id, :requestor_id => current_user.id, :accepted => false}}, :method => :post %>
 <% end %>
