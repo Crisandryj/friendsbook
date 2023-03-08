@@ -1,6 +1,6 @@
 <% @users.all.each do |user| %>
   <p><%= user.email %></p>
-  <p><%= button_to 'Request', {:controller => "friendships", :action => 'create',
-    :friendship => {:friend_request_id => current_user.id, :requested_friend_id => user.id, :accepted => false}}, :method => :post %>
-  
+  <p><%= (button_to 'Request', {:controller => "friendships", :action => 'create',
+    :friendship => {:friend_request_id => current_user.id, :requested_friend_id => user.id, :accepted => false}}, :method => :post)
+    if current_user.requested_friends.exclude?(user.id) %>
 <% end %>
