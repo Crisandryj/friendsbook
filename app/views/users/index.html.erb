@@ -1,7 +1,5 @@
 <% @users.all.each do |user| %>
   <p><%= user.email %></p>
-  #working on buttons to add friends
-  <p><%= button_to 'Request', new_friendships_path, params: {:friendship => {:accepted => true}} method: :patch%></p>
-  <p><%= button_to 'Accept', friendships_path, params: {:friendship => {:accepted => true}} method: :patch%></p>
-  <p><%= button_to 'Reject', friendships_path, params: {:friendship => {:accepted => false}} method: :destroy%></p>
+  <p><%= button_to 'Request', {:controller => "friendships", :action => 'create',
+    :friendship => {:requestee_id => user.id, :requestor_id => current_user.id, :accepted => false}}, :method => :post %>
 <% end %>
